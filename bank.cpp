@@ -357,9 +357,9 @@ void bank::hapus_pengguna() {
     string norek, pin;
     char ch;
     cout << "\t\t\tMenu Hapus Pengguna";
-    cout << "\n\nKode PIN\t\t\t\t\t : ";
+    cout << "\n\nKode PIN\t\t\t\t\t\t : ";
     cin >> pin;
-    cout << "Apakah Anda Yakin Ingin Menghapus Akun Anda? (Y/N) : ";
+    cout << "Apakah Anda Yakin Ingin Menghapus Akun Anda? (Y/N)\t : ";
     cin >> ch;
 
     for (int i = 0; i < penggunaCount; i++) {
