@@ -42,5 +42,5 @@ Tampilkan Informasi Pengguna
 ![Screenshot 2024-06-09 170117](https://github.com/parulls/UAS_LabAP3/assets/163014523/5b527fa1-6cba-48ae-b0ec-926535111072)
 
 Hapus Pengguna (Pengguna 2) (ketika dihapus maka akan otomatis masuk ke tampilan awal)
-![Screenshot 2024-06-09 173404](https://github.com/parulls/UAS_LabAP3/assets/163014523/5c2420eb-06b0-4920-a318-da94b530e6d1)
+![Screenshot 2024-06-09 180701](https://github.com/parulls/UAS_LabAP3/assets/163014523/dc6e42d4-2661-405f-af80-1aec41145cb1)
 ![Screenshot 2024-06-09 170619](https://github.com/parulls/UAS_LabAP3/assets/163014523/2aabbfbb-b7fa-42b9-b62a-f9138e304e1f)
