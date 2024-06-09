@@ -6,7 +6,7 @@ Tampilan awal
 ![image](https://github.com/parulls/UAS_LabAP3/assets/163014523/9cd84107-8ab3-46e4-9926-15759dac071a)
 
 Daftar akun baru (pengguna 1) 
-![Screenshot 2024-06-09 163241](https://github.com/parulls/UAS_LabAP3/assets/163014523/23b31d3d-84f1-43f5-95a7-132e277e8c84)
+![Screenshot 2024-06-09 181439](https://github.com/parulls/UAS_LabAP3/assets/80325573/cbb82c06-95c6-4bca-bfbc-8caf1db0da80)
 
 Daftar akun baru (pengguna 2)
 ![Screenshot 2024-06-09 164144](https://github.com/parulls/UAS_LabAP3/assets/163014523/9a15ce74-0c68-4816-81e2-539e80eb47ae)
@@ -44,3 +44,6 @@ Tampilkan Informasi Pengguna
 Hapus Pengguna (Pengguna 2) (ketika dihapus maka akan otomatis masuk ke tampilan awal)
 ![Screenshot (40)](https://github.com/parulls/UAS_LabAP3/assets/80325573/c64ac57f-1951-4830-aeb7-0476bb96eccc)
 ![Screenshot 2024-06-09 170619](https://github.com/parulls/UAS_LabAP3/assets/163014523/2aabbfbb-b7fa-42b9-b62a-f9138e304e1f)
+
+Keluar Dari Program
+![Screenshot 2024-06-09 181541](https://github.com/parulls/UAS_LabAP3/assets/80325573/1da8b474-41cd-4fbe-9c98-91b76e0375a4)
