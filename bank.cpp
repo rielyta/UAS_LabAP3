@@ -144,7 +144,6 @@ void bank::pengguna_baru() {
 void bank::pengguna_lama() {
     opsi :
     system("cls");
-    string norek,pin;
     int pilihan;
     cout << "\t\t\t\tMenu Penggunaan Mobile Banking";
     cout << "\n1. Deposit";
@@ -195,7 +194,6 @@ void bank::pengguna_lama() {
 
 void bank::deposit() {
     system("cls");
-    string norek,pin;
     double dep;
     cout << "\t\t\t\tMenu Deposit";
     cout << "\n\nJumlah Deposit\t\t\t\t : Rp.";
@@ -216,7 +214,6 @@ void bank::deposit() {
 
 void bank::penarikan() {
     system("cls");
-    string norek,pin;
     double tarik;
     cout << "\t\t\tMenu Penarikan";
     cout << "\n\nJumlah Penarikan\t\t\t : Rp.";
@@ -239,7 +236,7 @@ void bank::penarikan() {
 
 void bank::transfer() {
     system("cls");
-    string kirimnorek, terimanorek, pin;
+    string kirimnorek, terimanorek;
     double transfer;
     cout << "\t\t\tMenu Transfer";
     cout << "\n\nNomor Rekening Anda\t\t\t : ";
@@ -278,7 +275,6 @@ void bank::transfer() {
 void bank::pembayaran() {
     system("cls");
     hal_pembayaran q;
-    string pin;
     cout << "\t\t\tMenu Pembayaran";
     cout << "\n\nKeterangan\t\t\t\t : ";
     cin.ignore();
@@ -304,7 +300,6 @@ void bank::pembayaran() {
 
 void bank::tampilkan_informasi_pengguna() {
     system("cls");
-    string norek, pin;
     cout << "\t\t\tMenu Tampilkan Informasi Pengguna";
     for (int i = 0; i < penggunaCount; i++) {
         cout << "\n\n\n***********************************************************************";
@@ -325,7 +320,7 @@ void bank::tampilkan_informasi_pengguna() {
 
 void bank::edit_informasi_pengguna() {
     system("cls");
-    string norek, n, a, nt, pn, pin;
+    string n, a, nt, pn;
     cout << "\t\t\tMenu Edit Informasi Pengguna";
 
     for (int i = 0; i < penggunaCount; i++) {
@@ -351,7 +346,7 @@ void bank::edit_informasi_pengguna() {
 
 void bank::hapus_pengguna() {
     system("cls");
-    string norek, pin;
+    string pin;
     char ch;
     cout << "\t\t\tMenu Hapus Pengguna";
     cout << "\n\nKode PIN\t\t\t\t\t\t : ";
@@ -378,7 +373,6 @@ void bank::hapus_pengguna() {
 
 void bank::tampilkan_pembayaran() {
     system("cls");
-    string pin;
     hal_pembayaran* q = new hal_pembayaran();
     cout << "\t\t\tMenu Tampilkan Struk Pembayaran";
     for (int i = 0; i < pembayaranCount; i++) {
