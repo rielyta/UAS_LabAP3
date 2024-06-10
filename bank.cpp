@@ -7,9 +7,8 @@ using namespace std;
 class bank {
 private:
     struct pengguna {
-        string pin;
+        string pin,norek, nama, alamat, notel;;
         double saldo;
-        string norek, nama, alamat, notel;
     };
     struct hal_pembayaran {
         string norek, keterangan;
