@@ -45,7 +45,6 @@ public:
 void bank::menu() {
     opsi:
     int pilihan;
-    char ch;
     system("cls");
     cout << "\t\t\tMobile Banking Bersama USU";
     cout << "\n\n1. Gunakan Mobile Banking";
