@@ -16,8 +16,8 @@ private:
         double jumlah, saldo;
     };
 
-    pengguna* penggunaList[100];
-    hal_pembayaran* pembayaranList[100];
+    pengguna penggunaList[100];
+    hal_pembayaran pembayaranList[100];
     int penggunaCount;
     int pembayaranCount;
 
@@ -96,38 +96,38 @@ void bank::pengguna_baru() {
     system("cls");
     cout << "\t\t\t\tMenu Pengguna Baru";
     opsi : 
-    pengguna* p = new pengguna();
+    pengguna p;
     cout << "\n\nDaftarkan Nomor Rekening Pengguna\t : ";
-    cin >> p->norek;
-    if(p->norek.length() != 15)
+    cin >> p.norek;
+    if(p.norek.length() != 15)
     {
         cout << "\n\t\t\tNomor Rekening Harus 15 Digit\n";
         goto opsi;
     }
     for (int i = 0; i < penggunaCount; i++) {
-        if (penggunaList[i]->norek == p->norek) {
+        if (penggunaList[i].norek == p.norek) {
             cout << "\n\t\t\t\tNomor Rekening Pengguna Sudah Pernah Digunakan\n.";
             goto opsi;
         }
     }
     cout << "Nama Pengguna\t\t\t\t : ";
     cin.ignore();
-    getline(cin, p->nama);
+    getline(cin, p.nama);
     cout << "Alamat\t\t\t\t\t : ";
-    getline(cin, p->alamat);
+    getline(cin, p.alamat);
     cout << "Kode Pin (6 Digit)\t\t\t : ";
-    cin >> p->pin;
-    if (p->pin.length() != 6)
+    cin >> p.pin;
+    if (p.pin.length() != 6)
     {
         cout << "\n\t\t\tPin Harus 6 Digit";
         goto opsi;
     }
     cout << "Nomor Telepon\t\t\t\t : ";
-    cin >> p->notel;
+    cin >> p.notel;
     cout << "Saldo Terkini\t\t\t\t : Rp.";
-    cin >> p->saldo;
+    cin >> p.saldo;
 
-    if (p->saldo >= 50000) {
+    if (p.saldo >= 50000) {
         penggunaList[penggunaCount++] = p;
         cout << "\n\n\t\t\tPendaftaran Akun Pengguna Baru Berhasil.";
         cout << "\n\n\t\t\tSilahkan Masuk Kembali Untuk Menggunakan Mobile Banking.";
@@ -204,9 +204,9 @@ void bank::deposit() {
 
     for (int i = 0; i < penggunaCount; i++) {
         if (dep >= 100000){
-        penggunaList[i]->saldo += dep;
+        penggunaList[i].saldo += dep;
         cout << "\n\n\t\t\tSaldo Sebesar Rp." << fixed << setprecision(0) << dep << " Berhasil Ditambahkan!";
-        cout << "\n\n\t\t\tSaldo Terkini : Rp." << fixed << setprecision(0) << penggunaList[i]->saldo;
+        cout << "\n\n\t\t\tSaldo Terkini : Rp." << fixed << setprecision(0) << penggunaList[i].saldo;
         back();
         } else {
             cout << "Minimal Deposit adalah Rp.100000\n";
@@ -224,15 +224,15 @@ void bank::penarikan() {
     cin >> tarik;
 
     for (int i = 0; i < penggunaCount; i++) {
-        if (tarik <= (penggunaList[i]->saldo - 50000)) {
-            penggunaList[i]->saldo -= tarik;
+        if (tarik <= (penggunaList[i].saldo - 50000)) {
+            penggunaList[i].saldo -= tarik;
             cout << "\n\n\t\t\tSaldo Sebesar Rp." << fixed << setprecision(0) << tarik << " Berhasil Ditarik!";
-            cout << "\n\n\t\t\tSaldo Terkini : Rp." << fixed << setprecision(0) << penggunaList[i]->saldo;
+            cout << "\n\n\t\t\tSaldo Terkini : Rp." << fixed << setprecision(0) << penggunaList[i].saldo;
              back();
         }
         else {
             cout << "\n\n\t\t\tSaldo Anda Tidak Mencukupi.";
-            cout << "\n\n\t\t\tSaldo Terkini : Rp." << fixed << setprecision(0) << penggunaList[i]->saldo;
+            cout << "\n\n\t\t\tSaldo Terkini : Rp." << fixed << setprecision(0) << penggunaList[i].saldo;
             back();
         }
     }
@@ -254,13 +254,13 @@ void bank::transfer() {
     bool terimanorekFound = false;
 
     for (int i = 0; i < penggunaCount; i++) {
-        if (transfer <= (penggunaList[i]->saldo - 50000)){
-            if (penggunaList[i]->norek == kirimnorek) {
-                penggunaList[i]->saldo -= transfer;
+        if (transfer <= (penggunaList[i].saldo - 50000)){
+            if (penggunaList[i].norek == kirimnorek) {
+                penggunaList[i].saldo -= transfer;
                 kirimnorekFound = true;
             }
-            if (penggunaList[i]->norek == terimanorek) {
-                penggunaList[i]->saldo += transfer;
+            if (penggunaList[i].norek == terimanorek) {
+                penggunaList[i].saldo += transfer;
                 terimanorekFound = true;
             }
         }
@@ -278,26 +278,26 @@ void bank::transfer() {
 
 void bank::pembayaran() {
     system("cls");
-    hal_pembayaran* q = new hal_pembayaran();
+    hal_pembayaran q;
     string pin;
     cout << "\t\t\tMenu Pembayaran";
     cout << "\n\nKeterangan\t\t\t\t : ";
     cin.ignore();
-    getline(cin, q->keterangan);
+    getline(cin, q.keterangan);
     cout << "Jumlah Pembayaran\t\t\t : Rp.";
-    cin >> q->jumlah;
+    cin >> q.jumlah;
 
     for (int i = 0; i < penggunaCount; i++) {
-        if (q->jumlah <= (penggunaList[i]->saldo - 50000)) {
-            penggunaList[i]->saldo -= q->jumlah;
+        if (q.jumlah <= (penggunaList[i].saldo - 50000)) {
+            penggunaList[i].saldo -= q.jumlah;
             cout << "\n\n\t\t\tPembayaran Berhasil!";
-            cout << "\n\n\t\t\tSaldo Terkini : Rp." << fixed << setprecision(0) << penggunaList[i]->saldo;
+            cout << "\n\n\t\t\tSaldo Terkini : Rp." << fixed << setprecision(0) << penggunaList[i].saldo;
             pembayaranList[pembayaranCount++] = q;
             back();
         }
         else {
             cout << "\n\n\t\t\tSaldo Anda Tidak Mencukupi.";
-            cout << "\n\n\t\t\tSaldo Terkini : Rp." << fixed << setprecision(0) << penggunaList[i]->saldo;
+            cout << "\n\n\t\t\tSaldo Terkini : Rp." << fixed << setprecision(0) << penggunaList[i].saldo;
             back();
         }
     }
@@ -309,12 +309,12 @@ void bank::tampilkan_informasi_pengguna() {
     cout << "\t\t\tMenu Tampilkan Informasi Pengguna";
     for (int i = 0; i < penggunaCount; i++) {
         cout << "\n\n\n***********************************************************************";
-        cout << "\n\nNomor Rekening\t\t\t\t : " << penggunaList[i]->norek;
-        cout << "\nNama Pengguna\t\t\t\t : " << penggunaList[i]->nama;
-        cout << "\nAlamat\t\t\t\t\t : " << penggunaList[i]->alamat;
-        cout << "\nKode Pin\t\t\t\t : " << penggunaList[i]->pin;
-        cout << "\nNomor Telepon\t\t\t\t : " << penggunaList[i]->notel;
-        cout << "\nSaldo Terkini\t\t\t\t : " << fixed << setprecision(0) << penggunaList[i]->saldo;
+        cout << "\n\nNomor Rekening\t\t\t\t : " << penggunaList[i].norek;
+        cout << "\nNama Pengguna\t\t\t\t : " << penggunaList[i].nama;
+        cout << "\nAlamat\t\t\t\t\t : " << penggunaList[i].alamat;
+        cout << "\nKode Pin\t\t\t\t : " << penggunaList[i].pin;
+        cout << "\nNomor Telepon\t\t\t\t : " << penggunaList[i].notel;
+        cout << "\nSaldo Terkini\t\t\t\t : " << fixed << setprecision(0) << penggunaList[i].saldo;
         cout << "\n\n\n***********************************************************************";
     }
     if (penggunaCount == 0) {
@@ -340,10 +340,10 @@ void bank::edit_informasi_pengguna() {
         cout << "Nomor Telepon\t\t\t\t : ";
         cin >> nt;
 
-        penggunaList[i]->nama = n;
-        penggunaList[i]->alamat = a;
-        penggunaList[i]->pin = pn;
-        penggunaList[i]->notel = nt;
+        penggunaList[i].nama = n;
+        penggunaList[i].alamat = a;
+        penggunaList[i].pin = pn;
+        penggunaList[i].notel = nt;
 
         cout << "\n\n\t\t\tData Berhasil Diubah!";
         back();
@@ -361,16 +361,17 @@ void bank::hapus_pengguna() {
     cin >> ch;
 
     for (int i = 0; i < penggunaCount; i++) {
-        if (penggunaList[i]->pin == pin && (ch == 'Y' || ch == 'y')) {
+        if (penggunaList[i].pin == pin && (ch == 'Y' || ch == 'y')) {
             for (int j = i; j < penggunaCount - 1; j++) {
-                delete penggunaList[j];
                 penggunaList[j] = penggunaList[j + 1];
             }
             penggunaCount--;
             pengaturan_atm();
+            break;
         }
         else if (ch == 'N' || ch == 'n') {
             back();
+            break;
         }
     }
 }
@@ -383,9 +384,9 @@ void bank::tampilkan_pembayaran() {
     cout << "\t\t\tMenu Tampilkan Struk Pembayaran";
     for (int i = 0; i < pembayaranCount; i++) {
         cout << "\n\n\n***********************************************************************";
-        cout << "\n\nNomor Rekening\t\t\t\t : " << penggunaList[i]->norek;
-        cout << "\nKeterangan\t\t\t\t : " << pembayaranList[i]->keterangan;
-        cout << "\nJumlah Pembayaran\t\t\t : Rp." << fixed << setprecision(0) << pembayaranList[i]->jumlah;
+        cout << "\n\nNomor Rekening\t\t\t\t : " << penggunaList[i].norek;
+        cout << "\nKeterangan\t\t\t\t : " << pembayaranList[i].keterangan;
+        cout << "\nJumlah Pembayaran\t\t\t : Rp." << fixed << setprecision(0) << pembayaranList[i].jumlah;
         cout << "\n\n\n***********************************************************************";
     }
     if (pembayaranCount == 0) {
@@ -407,7 +408,7 @@ void bank::cek_kode_pin() {
     bool found = false;
 
     for (int i = 0; i < penggunaCount; i++) {
-        if ((penggunaList[i]->norek == norek || pembayaranList[i]->norek == q.norek) && penggunaList[i]->pin == pin) {
+        if ((penggunaList[i].norek == norek || pembayaranList[i].norek == q.norek) && penggunaList[i].pin == pin) {
             found = true;
             break;
         }
@@ -429,6 +430,6 @@ void bank::back() {
 
 int main() {
     bank b;
-    b.menu();
-    return 0;
+    bank* bPtr = &b;
+    bPtr->menu();
 }
